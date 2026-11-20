@@ -17,6 +17,8 @@ php artisan serve --host=127.0.0.1 --port=8000
 
 Open <http://localhost:8000> and follow the [user guide](docs/USER_GUIDE.md). The [music notation guide (French)](docs/FORMAT_MUSICAL.md) covers tempo settings, sections, and pauses. The [self-hosting guide (French)](docs/AUTO_HEBERGEMENT.md) covers HTTPS, Docker, and enabling accounts.
 
+The [score editor guide (French)](docs/PARTITIONS.md) covers musical arrangements, multitrack playback, and deployment.
+
 ## Contributing
 
 Open an [issue](https://github.com/Rayman223/lyricflow/issues) to report a reproducible problem or discuss a proposed change. Submit changes in a pull request and describe the checks you ran. By submitting a contribution, you offer it under the repository license and confirm that you have the right to do so. Include the source and license terms of any third-party resources. Use English for interface text and French for technical documentation, issues, and pull requests.

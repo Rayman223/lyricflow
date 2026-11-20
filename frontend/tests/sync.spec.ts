@@ -125,7 +125,7 @@ test('retains conflicting offline edits after reload and keeps both versions on 
         await expect(
             second.page.getByRole('heading', { name: 'Choose a version', exact: true }),
         ).toBeVisible()
-        await second.page.getByText('Compare lyrics', { exact: true }).click()
+        await second.page.getByText('Compare song versions', { exact: true }).click()
         await expect(second.page.locator('.conflict-card')).toContainText(
             'https://deezer.com/track/1',
         )

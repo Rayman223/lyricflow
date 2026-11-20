@@ -1144,3 +1144,120 @@ fieldset {
 .reader > .music-links {
     flex-shrink: 0;
 }
+
+.scores-panel {
+    margin-block: 1.5rem;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+.score-list-row,
+.score-controls,
+.score-mix-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.7rem;
+    margin-block: 0.75rem;
+}
+.score-list-row > button:first-child {
+    flex: 1 1 16rem;
+    text-align: left;
+}
+.score-workspace {
+    position: fixed;
+    inset: 0;
+    z-index: 150;
+    overflow: auto;
+    padding: clamp(0.5rem, 2vw, 2rem);
+    background: var(--bg);
+    color: var(--text);
+}
+.score-workspace .screen-heading {
+    position: sticky;
+    top: -0.5rem;
+    z-index: 2;
+    background: var(--bg);
+    padding-block: 0.5rem;
+}
+.score-workspace h1 {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    overflow-wrap: anywhere;
+}
+.score-controls label {
+    max-width: 100%;
+}
+.score-controls input[type='number'] {
+    width: 6rem;
+}
+.score-controls select {
+    max-width: 100%;
+}
+.score-tools,
+.score-mixer {
+    padding: 0.75rem;
+    margin-block: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+.score-events {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+}
+.score-events button[aria-pressed='true'] {
+    outline: 3px solid var(--accent);
+}
+.score-paper {
+    background: #fff;
+    color: #111;
+    overflow-x: auto;
+    border-radius: 8px;
+    margin-block: 1rem;
+}
+.alpha-score {
+    min-width: 280px;
+}
+.at-cursor-bar {
+    background: rgba(80, 120, 220, 0.15);
+}
+.at-cursor-beat {
+    background: rgba(40, 100, 240, 0.5);
+    width: 3px;
+}
+.at-highlight * {
+    fill: #245ada;
+    stroke: #245ada;
+}
+.score-mix-row > strong {
+    flex: 1 1 10rem;
+    overflow-wrap: anywhere;
+}
+.score-mix-row input[type='range'] {
+    max-width: 10rem;
+}
+.score-tools .plain-list li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+}
+@media (max-width: 600px) {
+    .score-controls {
+        align-items: end;
+    }
+    .score-workspace .field-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .score-workspace button {
+        min-height: 44px;
+    }
+}
+
+.score-workspace .check-row {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.4rem;
+}

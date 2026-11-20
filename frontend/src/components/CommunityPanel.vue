@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ScoresPanel from './ScoresPanel.vue'
 import { onMounted, ref } from 'vue'
 import { accountGet, accountRequest, type Account } from '../accounts/client'
 import type { Publication, CatalogSong, Rating, ModerationTarget } from '../community/model'
@@ -237,6 +238,7 @@ onMounted(() =>
                 {{ publication.content.music.beatsPerBar }} {{ t('beats') }} ·
                 {{ publication.content.music.barsPerLine }} {{ t('bars') }}
             </p>
+            <ScoresPanel :arrangements="publication.content.arrangements" />
             <button class="primary" :disabled="busy" @click="emit('download', publication)">
                 {{ t('savePrivateCopy') }}
             </button>

@@ -4,6 +4,12 @@ Les composants de tiers restent régis par leurs propres licences. Composer et n
 
 Les textes ci-dessous couvrent la base Laravel et les dépendances intégrées aux ressources web compilées. Le conteneur de production conserve les notices des dépendances PHP installées dans `vendor/` et hérite des composants et notices de son image de base FrankenPHP.
 
+## alphaTab 1.8.4 et ressources musicales
+
+alphaTab et son plugin Vite sont distribués sous [Mozilla Public License 2.0](https://github.com/CoderLine/alphaTab/blob/v1.8.4/LICENSE). Le [code source de la version utilisée](https://github.com/CoderLine/alphaTab/tree/v1.8.4) et le correctif de lecture audio appliqué au module dans [frontend/vite.config.ts](https://github.com/Rayman223/lyricflow/blob/main/frontend/vite.config.ts) permettent de reproduire le module modifié. Les modifications d’alphaTab sont disponibles sous la même MPL 2.0.
+
+La police Bravura est distribuée sous SIL Open Font License, avec sa notice dans `/font/Bravura-OFL.txt`. La banque de sons SONiVOX est distribuée sous Apache License 2.0, avec sa licence dans `/soundfont/LICENSE`.
+
 ## Laravel — licence MIT
 
 The MIT License (MIT)

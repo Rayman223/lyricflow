@@ -33,6 +33,13 @@ async function queueSync(tx: WriteTransaction, key: string) {
         key === 'theme'
             ? { theme: (await tx.objectStore('preferences').get('theme')) as 'light' | 'dark' }
             : await songValue(tx, key.slice(5))
+    // Only newly created operations advertise score support. Never rewrite an
+    // immutable in-flight request or a snapshot preserved by the v9 migration.
+    if (value && 'song' in value)
+        for (const kind of ['song', 'draft'] as const) {
+            const song = value[kind]
+            if (song) song.arrangements ??= []
+        }
     entry.operation = { id: crypto.randomUUID(), key, baseRevision: entry.revision, value }
     await store.put(entry)
 }
@@ -69,7 +76,7 @@ export class QuotaError extends Error {}
 export class LibraryRemovedError extends Error {}
 
 export function openLibrary(name = 'lyricflow') {
-    return openDB<LibrarySchema>(name, 8, {
+    return openDB<LibrarySchema>(name, 9, {
         upgrade(db, oldVersion, _next, transaction) {
             // Append future migrations here. Never recreate a populated object store.
             if (oldVersion < 1) {
@@ -104,6 +111,10 @@ export function openLibrary(name = 'lyricflow') {
                 // Optional musicLinks on songs, drafts and shared content; absence means no links.
                 // Keep queued request snapshots intact for idempotent retries.
                 transaction.objectStore('preferences').put('1', 'musicLinksFormat')
+            }
+            if (oldVersion < 9) {
+                // Optional arrangements v1; retain songs, drafts, revisions and retry hashes.
+                transaction.objectStore('preferences').put('1', 'scoreFormat')
             }
         },
         blocking(_old, _next, event) {

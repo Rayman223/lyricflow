@@ -1,3 +1,4 @@
+import type { Arrangement } from './score'
 import type { MusicLinks } from './musicLinks'
 
 export interface SongSettings {
@@ -20,6 +21,7 @@ export interface Song {
     title: string
     artist: string
     lyrics: string
+    arrangements?: Arrangement[]
     musicLinks?: MusicLinks
     settings: SongSettings
     updatedAt: string
@@ -31,6 +33,7 @@ export interface SharedContent {
     title: string
     artist: string
     lyrics: string
+    arrangements?: Arrangement[]
     musicLinks?: MusicLinks
     music: Pick<SongSettings, 'bpm' | 'beatsPerBar' | 'barsPerLine'>
 }

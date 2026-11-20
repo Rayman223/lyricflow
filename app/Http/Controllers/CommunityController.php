@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Services\Community;
+use App\Services\Score;
 use App\Services\SharedSong;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -131,6 +132,9 @@ class CommunityController extends Controller
                     && (int) $existing->sharing_version === (int) $data['expectedSharingVersion'], 409, __('community.sharing_changed'));
             }
             $oldContent = $existing ? json_decode(DB::table('publication_revisions')->where('publication_id', $existing->id)->where('number', $existing->revision)->firstOrFail()->content, true, flags: JSON_THROW_ON_ERROR) : null;
+            if ($oldContent) {
+                Score::preserve($oldContent, $content);
+            }
             $catalogId = $existing?->catalog_song_id;
             // Retain administrative corrections and merges when only musical content changes.
             if (! $existing || $oldContent['title'] !== $content['title'] || $oldContent['artist'] !== $content['artist']) {

@@ -3,11 +3,13 @@ import { ref, watch } from 'vue'
 import { newSong, type Song, type ReaderSettings } from '../domain/song'
 import { loadPublicPrompter } from '../community/links'
 import { t } from '../i18n/en'
+import ScoresPanel from './ScoresPanel.vue'
 import Prompter from './Prompter.vue'
 import ShareLink from './ShareLink.vue'
 
 const props = defineProps<{ id: string; theme: string }>()
 const emit = defineEmits<{ close: []; theme: [] }>()
+const showScores = ref(false)
 const song = ref<Song>(),
     error = ref(''),
     loading = ref(false),
@@ -32,6 +34,7 @@ watch(
                 artist: publication.content.artist,
                 lyrics: publication.content.lyrics,
                 musicLinks: publication.content.musicLinks,
+                arrangements: publication.content.arrangements,
                 settings: { ...temporary.settings, ...publication.content.music },
             }
         } catch (e) {
@@ -48,8 +51,17 @@ function settings(value: ReaderSettings) {
 </script>
 
 <template>
+    <main v-if="song && (showScores || !song.lyrics.trim())" class="screen">
+        <h1>{{ song.title }}</h1>
+        <button @click="emit('close')">{{ t('back') }}</button
+        ><button v-if="song.lyrics.trim()" @click="showScores = false">{{ t('read') }}</button
+        ><ScoresPanel :arrangements="song.arrangements" /><ShareLink
+            :song="song"
+            :publication-id="id"
+        />
+    </main>
     <Prompter
-        v-if="song"
+        v-else-if="song"
         :key="song.id"
         :song="song"
         :theme="theme"
@@ -59,6 +71,9 @@ function settings(value: ReaderSettings) {
     >
         <template #share="{ running }">
             <ShareLink :song="song" :publication-id="id" :running="running" />
+            <button v-if="song.arrangements?.length" @click="showScores = true">
+                {{ t('scores') }}
+            </button>
         </template>
     </Prompter>
     <main v-else class="screen">

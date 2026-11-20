@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ScoresPanel from './ScoresPanel.vue'
 import type { SyncValue } from '../storage/sync-types'
 import { t } from '../i18n/en'
 import { musicServices } from '../domain/musicLinks'
@@ -15,6 +16,7 @@ defineProps<{ value: SyncValue }>()
                     {{ value[kind].artist || t('unknownArtist') }}
                 </p>
                 <pre>{{ value[kind].lyrics }}</pre>
+                <ScoresPanel :arrangements="value[kind].arrangements" />
                 <dl class="conflict-settings">
                     <template v-for="service in musicServices" :key="service.key">
                         <template v-if="value[kind].musicLinks?.[service.key]">
