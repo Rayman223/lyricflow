@@ -13,8 +13,9 @@ class SharedSong
         $number = fn ($attribute, $value, $fail) => is_int($value) || is_float($value) ? null : $fail(__('community.number'));
 
         return [
+            ...Score::rules("$prefix.arrangements"),
             ...MusicLinks::rules("$prefix.musicLinks"),
-            $prefix => ['required', 'array:formatVersion,title,artist,lyrics,music,musicLinks'],
+            $prefix => ['required', 'array:formatVersion,title,artist,lyrics,music,musicLinks,arrangements'],
             "$prefix.formatVersion" => ['required', 'integer', Rule::in([1]), function ($attribute, $value, $fail): void {
                 if ($value !== 1) {
                     $fail(__('community.invalid_song'));
@@ -22,7 +23,7 @@ class SharedSong
             }],
             "$prefix.title" => ['required', 'string', 'max:200'],
             "$prefix.artist" => ['present', 'string', 'max:200'],
-            "$prefix.lyrics" => ['required', 'string', 'max:100000'],
+            "$prefix.lyrics" => ['present', 'string', 'max:100000'],
             "$prefix.music" => ['required', 'array:bpm,beatsPerBar,barsPerLine'],
             "$prefix.music.bpm" => ['required', 'numeric', 'min:1', 'max:1000', $number],
             "$prefix.music.beatsPerBar" => ['required', 'integer', 'min:1', 'max:32', $number],
@@ -33,7 +34,10 @@ class SharedSong
     public static function validate(array $data, bool $musical = true): array
     {
         Validator::make(['content' => $data], self::rules('content'))->validate();
-        if (trim($data['title']) === '' || ($musical && ! self::validLyrics($data['lyrics']))) {
+        $scores = $data['arrangements'] ?? [];
+        $validScores = ! array_filter($scores, fn ($score) => ! Score::playable($score));
+        $validMusic = trim($data['lyrics']) !== '' ? self::validLyrics($data['lyrics']) : count($scores) > 0;
+        if (trim($data['title']) === '' || ($musical && (! $validMusic || ! $validScores))) {
             throw ValidationException::withMessages(['content' => __('community.invalid_song')]);
         }
 

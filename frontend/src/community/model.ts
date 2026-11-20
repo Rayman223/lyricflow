@@ -1,3 +1,4 @@
+import { scoreSignature } from '../domain/score'
 import { cleanMusicLinks, musicServices } from '../domain/musicLinks'
 import { newSong, type Song, type SharedContent } from '../domain/song'
 
@@ -74,6 +75,8 @@ export function sharedContent(song: Song): SharedContent {
     const links = cleanMusicLinks(song.musicLinks)
     return {
         ...(Object.keys(links).length ? { musicLinks: links } : {}),
+        // Callers may pass Vue proxies; scores contain only JSON musical data.
+        arrangements: JSON.parse(JSON.stringify(song.arrangements ?? [])),
         formatVersion: 1,
         title: song.title,
         artist: song.artist,
@@ -94,6 +97,7 @@ export function sharedSignature(content: SharedContent): string {
         content.music.bpm,
         content.music.beatsPerBar,
         content.music.barsPerLine,
+        scoreSignature(content.arrangements),
         ...musicServices.map(({ key }) => content.musicLinks?.[key] || ''),
     ])
 }
@@ -101,6 +105,7 @@ export function applyPublication(song: Song, publication: Publication): Song {
     const content = publication.content
     return {
         ...song,
+        arrangements: structuredClone(content.arrangements ?? []),
         title: content.title,
         artist: content.artist,
         lyrics: content.lyrics,

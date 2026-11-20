@@ -40,3 +40,8 @@ _ide_helper.php
 Homestead.json
 Homestead.yaml
 Thumbs.db
+# alphaTab static assets are reproduced by the pinned Vite plugin.
+/frontend/public/font/
+/frontend/public/soundfont/
+/public/font/
+/public/soundfont/

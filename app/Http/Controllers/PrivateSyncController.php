@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Services\MusicLinks;
+use App\Services\Score;
 use App\Services\SharedSong;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -49,6 +50,15 @@ class PrivateSyncController extends Controller
                 } elseif ($op['key'] !== 'theme' && (($current ? (int) $current->revision : 0) !== (int) $op['baseRevision'] || ($current && $current->value === null && $op['value'] !== null))) {
                     $result = ['status' => 'conflict', 'record' => $current ? $this->record($current) : ['key' => $op['key'], 'revision' => 0, 'value' => null]];
                 } else {
+                    if ($current && $current->value !== null && $op['key'] !== 'theme' && $op['value'] !== null) {
+                        $before = json_decode($current->value, true, flags: JSON_THROW_ON_ERROR);
+                        foreach (['song', 'draft'] as $kind) {
+                            if (! empty($before[$kind]['arrangements'])) {
+                                $after = $op['value'][$kind] ?? ($op['value']['song'] ?? $op['value']['draft'] ?? []);
+                                Score::preserve($before[$kind], $after);
+                            }
+                        }
+                    }
                     $revision++;
                     $query->updateOrInsert(['user_id' => $user->id, 'record_key' => $op['key']], [
                         'revision' => $revision,
@@ -93,7 +103,8 @@ class PrivateSyncController extends Controller
                 continue;
             }
             $prefix = "value.$kind";
-            $rules[$prefix] = ['required', 'array:id,formatVersion,title,artist,lyrics,settings,updatedAt,source,musicLinks'];
+            $rules[$prefix] = ['required', 'array:id,formatVersion,title,artist,lyrics,settings,updatedAt,source,musicLinks,arrangements'];
+            $rules = [...$rules, ...Score::rules("$prefix.arrangements")];
             $rules = [...$rules, ...MusicLinks::rules("$prefix.musicLinks", $kind === 'draft')];
             $rules["$prefix.source"] = ['sometimes', 'nullable', 'array:publicationId,revision,base'];
             if (isset($op['value'][$kind]['source'])) {

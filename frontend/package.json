@@ -15,10 +15,12 @@
         "test:e2e": "playwright test"
     },
     "dependencies": {
+        "@coderline/alphatab": "1.8.4",
         "idb": "^8.0.0",
         "vue": "^3.5.0"
     },
     "devDependencies": {
+        "@coderline/alphatab-vite": "1.8.4",
         "@playwright/test": "^1.56.0",
         "@types/node": "^22.0.0",
         "@vitejs/plugin-vue": "^6.0.10",

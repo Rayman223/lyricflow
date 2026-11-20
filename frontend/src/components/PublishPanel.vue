@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ScoresPanel from './ScoresPanel.vue'
+import { publishableScores } from '../domain/score'
 import MusicLinks from './MusicLinks.vue'
 import { onMounted, ref, toRaw } from 'vue'
 import type { Song } from '../domain/song'
@@ -44,7 +46,12 @@ onMounted(async () => {
 async function submit() {
     if (busy.value || !accepted.value) return
     const parsed = parseLyrics(content.value.lyrics)
-    if (parsed.errors.length || !parsed.items.some((item) => item.kind === 'lyric')) {
+    if (
+        !publishableScores(content.value.arrangements) ||
+        (content.value.lyrics.trim()
+            ? parsed.errors.length || !parsed.items.some((item) => item.kind === 'lyric')
+            : !content.value.arrangements?.length)
+    ) {
         error.value = t('invalidCodes')
         return
     }
@@ -144,6 +151,7 @@ async function withdraw() {
                 }}<span v-if="existing"> · V.{{ existing.revision }}</span>
             </p>
             <MusicLinks :links="content.musicLinks" />
+            <ScoresPanel :arrangements="content.arrangements" />
             <pre class="lyrics-preview">{{ content.lyrics }}</pre>
             <p>
                 {{ content.music.bpm }} BPM · {{ content.music.beatsPerBar }} {{ t('beats') }} ·

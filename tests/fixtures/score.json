@@ -1,0 +1,386 @@
+{
+  "id": "c760b9d3-8bce-4161-8f6e-f4ecdd18f708",
+  "version": 1,
+  "name": "Ensemble",
+  "tempo": 120,
+  "numerator": 4,
+  "denominator": 4,
+  "key": 0,
+  "bars": [
+    "6c55fab0-46ea-4321-8e04-9f55b122161a",
+    "03c021c8-bef7-4567-ab76-9106cea36743"
+  ],
+  "tracks": [
+    {
+      "id": "be07f416-36f3-48b0-9097-d2fe571f589f",
+      "name": "Lead guitar",
+      "instrument": "guitar",
+      "staves": [
+        {
+          "id": "8961b4b4-2598-438d-8c84-02abede14ca9",
+          "clef": "treble",
+          "measures": [
+            {
+              "id": "9f624ba3-3e74-48cf-8ed5-d7b500d47640",
+              "voices": [
+                {
+                  "id": "b9952181-f23c-4918-ab93-7480c402a942",
+                  "events": [
+                    {
+                      "id": "0e737746-458c-43bd-8eff-668f1a538cc7",
+                      "duration": 1,
+                      "dots": 0,
+                      "triplet": false,
+                      "notes": [
+                        {
+                          "id": "d0d6123e-28e0-4c52-b873-2d9238a02fcd",
+                          "pitch": 64,
+                          "spelling": "auto",
+                          "tie": false,
+                          "string": 1,
+                          "fret": 0
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "05a7f067-ee74-4961-8a8d-30dcd656d6c5",
+              "voices": [
+                {
+                  "id": "8317a8ac-683a-4508-b289-02ab4e79a734",
+                  "events": [
+                    {
+                      "id": "7611546c-e7ca-4488-8217-256e2fc7f6d8",
+                      "duration": 1,
+                      "dots": 0,
+                      "triplet": false,
+                      "notes": [
+                        {
+                          "id": "5911e34d-f6d7-4638-93e0-be8d5b39ef0a",
+                          "pitch": 64,
+                          "spelling": "auto",
+                          "tie": false,
+                          "string": 1,
+                          "fret": 0
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "607358ae-a5a2-431b-9e5f-34c4cac73328",
+      "name": "Rhythm guitar",
+      "instrument": "guitar",
+      "staves": [
+        {
+          "id": "33dd654e-96f1-4c7f-9e9a-57c632a12445",
+          "clef": "treble",
+          "measures": [
+            {
+              "id": "19feaa49-3fe7-429f-a0cd-baa6e6004940",
+              "voices": [
+                {
+                  "id": "5cf5c05c-1c86-44cc-968c-0e8ab7a87b30",
+                  "events": [
+                    {
+                      "id": "9386a1b5-6050-45a0-b14d-9b7b4a74a7ff",
+                      "duration": 1,
+                      "dots": 0,
+                      "triplet": false,
+                      "notes": [
+                        {
+                          "id": "d823fbfa-954f-4f07-a76a-15b1591b191b",
+                          "pitch": 64,
+                          "spelling": "auto",
+                          "tie": false,
+                          "string": 1,
+                          "fret": 0
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "461f08ba-fd21-4140-ba5b-d217f6c335f6",
+              "voices": [
+                {
+                  "id": "c9a9500a-e089-4be4-80d0-b43cfc9545b4",
+                  "events": [
+                    {
+                      "id": "b41f4c59-8fc8-41b5-975a-38334eb42288",
+                      "duration": 1,
+                      "dots": 0,
+                      "triplet": false,
+                      "notes": [
+                        {
+                          "id": "5665d693-416d-46b5-98f9-ba83a1e4c038",
+                          "pitch": 64,
+                          "spelling": "auto",
+                          "tie": false,
+                          "string": 1,
+                          "fret": 0
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e96da9da-77f4-4dc6-bec7-f75615b7f484",
+      "name": "Bass",
+      "instrument": "bass",
+      "staves": [
+        {
+          "id": "8ecc2257-c4e0-4a08-a5eb-d303bbfb9c30",
+          "clef": "bass",
+          "measures": [
+            {
+              "id": "fdeee10d-97d5-4611-8450-bc2e4240b8f2",
+              "voices": [
+                {
+                  "id": "c30122df-556c-4fc0-97ca-3051017d1fda",
+                  "events": [
+                    {
+                      "id": "f64e282b-0002-417c-a2ee-dd77ca950db6",
+                      "duration": 1,
+                      "dots": 0,
+                      "triplet": false,
+                      "notes": [
+                        {
+                          "id": "d8ac695d-ed92-4efb-ae79-a1fb2d9a7d99",
+                          "pitch": 43,
+                          "spelling": "auto",
+                          "tie": false,
+                          "string": 1,
+                          "fret": 0
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "09163550-5c32-46dc-8bcb-03bb9b207e54",
+              "voices": [
+                {
+                  "id": "9d7fcaa0-04fd-4a05-825e-de96126ef365",
+                  "events": [
+                    {
+                      "id": "c55b4fcf-25e6-4753-a3ab-0d03d00c6632",
+                      "duration": 1,
+                      "dots": 0,
+                      "triplet": false,
+                      "notes": [
+                        {
+                          "id": "3423b248-1c42-40b6-9ac9-64b9652f2bf6",
+                          "pitch": 43,
+                          "spelling": "auto",
+                          "tie": false,
+                          "string": 1,
+                          "fret": 0
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bf4da1d7-ff1e-4e9d-9726-3dd1c1e67955",
+      "name": "Piano",
+      "instrument": "piano",
+      "staves": [
+        {
+          "id": "2fc28935-ae43-4e3b-85b7-2e1baaf0d4d7",
+          "clef": "treble",
+          "measures": [
+            {
+              "id": "27e14cbf-7226-4c5e-930a-cfdad0e43bec",
+              "voices": [
+                {
+                  "id": "3a9d4506-f632-46b5-a86a-bd487ba06b5f",
+                  "events": [
+                    {
+                      "id": "74dcb62a-b194-4250-bc23-b1ad823b4f78",
+                      "duration": 1,
+                      "dots": 0,
+                      "triplet": false,
+                      "notes": [
+                        {
+                          "id": "7ea18ed7-9212-4047-a429-ca45f74d2da4",
+                          "pitch": 60,
+                          "spelling": "auto",
+                          "tie": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "fec4148a-91f8-4a0d-815a-ff2e1b8cca21",
+              "voices": [
+                {
+                  "id": "5e9e4d67-9289-49bc-80f9-044206bd241e",
+                  "events": [
+                    {
+                      "id": "91348dd6-bbc4-45aa-aee0-2d079288496c",
+                      "duration": 1,
+                      "dots": 0,
+                      "triplet": false,
+                      "notes": [
+                        {
+                          "id": "fb478998-717d-4815-9e96-0ba825f82a3f",
+                          "pitch": 60,
+                          "spelling": "auto",
+                          "tie": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "878da774-b672-4a7e-ac5d-35fec9cf69c3",
+          "clef": "bass",
+          "measures": [
+            {
+              "id": "dd494103-bacd-4cfc-927b-0777610c711c",
+              "voices": [
+                {
+                  "id": "415fdfa1-014d-4560-b266-bf872551cda3",
+                  "events": [
+                    {
+                      "id": "e582f1c0-9bb3-4b46-8952-1a2f62979cd2",
+                      "duration": 1,
+                      "dots": 0,
+                      "triplet": false,
+                      "notes": [
+                        {
+                          "id": "7da0019c-229d-470b-9f98-14e6fe355270",
+                          "pitch": 48,
+                          "spelling": "auto",
+                          "tie": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "ee2f24b6-22c4-4f71-a44c-1bdb63ea4e31",
+              "voices": [
+                {
+                  "id": "286d9220-8943-40d9-98e4-6b5bb52bd127",
+                  "events": [
+                    {
+                      "id": "f0e54765-f2e1-469b-bf5b-b3ba85f7d4e8",
+                      "duration": 1,
+                      "dots": 0,
+                      "triplet": false,
+                      "notes": [
+                        {
+                          "id": "25b92792-d9bc-40dc-9072-dc55e5682dea",
+                          "pitch": 48,
+                          "spelling": "auto",
+                          "tie": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c00b28c8-2c69-45d8-9ba7-b7eda5fb4380",
+      "name": "Drums",
+      "instrument": "drums",
+      "staves": [
+        {
+          "id": "62b6bbc3-c321-435b-90d8-09cfab6a7df8",
+          "clef": "percussion",
+          "measures": [
+            {
+              "id": "a747077e-79e3-42fe-8b16-b271c4eb0a10",
+              "voices": [
+                {
+                  "id": "e7eadc37-01a7-4d69-91c5-1c546c79007b",
+                  "events": [
+                    {
+                      "id": "ae93f33a-8498-4cc3-aa19-89188561b21f",
+                      "duration": 1,
+                      "dots": 0,
+                      "triplet": false,
+                      "notes": [
+                        {
+                          "id": "96e8d0c7-4478-42b6-9629-4d34e888a7a1",
+                          "pitch": 36,
+                          "spelling": "auto",
+                          "tie": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "a04a198a-5ccc-4216-9b53-851ba9ff1c9c",
+              "voices": [
+                {
+                  "id": "81560210-ccb7-450d-9971-21fb35584bbf",
+                  "events": [
+                    {
+                      "id": "254a85f5-e4f4-4b92-b89e-640b9b4f3e33",
+                      "duration": 1,
+                      "dots": 0,
+                      "triplet": false,
+                      "notes": [
+                        {
+                          "id": "0007cb5a-0b9d-46e2-914e-c7d450f9c86c",
+                          "pitch": 36,
+                          "spelling": "auto",
+                          "tie": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

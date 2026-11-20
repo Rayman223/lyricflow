@@ -13,6 +13,7 @@ import {
 import { validSettings } from '../domain/song'
 import { parseLyrics } from '../domain/parser'
 import { t, diagnostic } from '../i18n/en'
+import ScoresPanel from './ScoresPanel.vue'
 import TimingFields from './TimingFields.vue'
 import TapTempo from './TapTempo.vue'
 import { textareaCaret } from './textareaCaret'
@@ -348,6 +349,18 @@ async function insert() {
                     </label>
                 </div>
             </fieldset>
+            <ScoresPanel
+                :arrangements="model.arrangements"
+                editable
+                :status="
+                    savedState === 'saved'
+                        ? t('draftSaved')
+                        : savedState === 'pending'
+                          ? t('draftPending')
+                          : t('storageError')
+                "
+                @change="model.arrangements = $event"
+            />
             <label class="lyrics-label" for="lyrics">{{ t('lyrics') }}</label>
             <div class="code-toolbar" :aria-label="t('insert')">
                 <button type="button" @click="openTool('section')">+ {{ t('section') }}</button

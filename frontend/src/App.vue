@@ -24,6 +24,7 @@ import { t } from './i18n/en'
 import { synchronize } from './accounts/sync'
 import { synchronizeSharing } from './community/sharing'
 import type { SyncEntry } from './storage/sync-types'
+import ScoresPanel from './components/ScoresPanel.vue'
 import SongEditor from './components/SongEditor.vue'
 import SharingStatus from './components/SharingStatus.vue'
 import Prompter from './components/Prompter.vue'
@@ -58,6 +59,7 @@ const screen = ref<
     | 'moderation'
     | 'shared'
     | 'support'
+    | 'scores'
 >(
     location.pathname.replace(/\/+$/, '') === '/support'
         ? 'support'
@@ -953,8 +955,18 @@ const back = localAction(async () => {
         saving.value = false
     }
 })
+function openScores(song: Song) {
+    if (profileSwitching.value) return
+    reading.value = structuredClone(toRaw(song))
+    screen.value = 'scores'
+}
 function openReader(song: Song) {
     if (profileSwitching.value) return
+    if (!song.lyrics.trim() && song.arrangements?.length) {
+        reading.value = structuredClone(toRaw(song))
+        screen.value = 'scores'
+        return
+    }
     const parsed = parseLyrics(song.lyrics)
     if (
         !validSettings(song.settings) ||
@@ -1331,6 +1343,9 @@ onBeforeUnmount(() => {
                                 >{{ song.settings.bpm }} <small>BPM</small></span
                             >
                         </button>
+                        <button v-if="song.arrangements?.length" @click="openScores(song)">
+                            {{ t('scores') }}
+                        </button>
                         <div v-if="song.source" class="source-status">
                             <button class="quiet" @click="openCommunity(song.source.publicationId)">
                                 {{ t('sourceVersion', { revision: song.source.revision }) }}
@@ -1448,6 +1463,11 @@ onBeforeUnmount(() => {
                 @read="read"
                 @back="back"
             />
+            <main v-else-if="screen === 'scores' && reading" class="screen">
+                <h1>{{ reading.title }}</h1>
+                <button @click="screen = 'library'">{{ t('back') }}</button
+                ><ScoresPanel :arrangements="reading.arrangements" />
+            </main>
             <Prompter
                 v-else-if="screen === 'reader' && reading"
                 :song="reading"
@@ -1457,6 +1477,9 @@ onBeforeUnmount(() => {
                 @theme="setTheme"
             >
                 <template #share="{ running }">
+                    <button v-if="reading.arrangements?.length" @click="screen = 'scores'">
+                        {{ t('scores') }}
+                    </button>
                     <ShareLink
                         :key="`${activeProfile}:${accountSession?.user?.id}`"
                         :song="reading"
