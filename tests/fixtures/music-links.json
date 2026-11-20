@@ -1,0 +1,182 @@
+[
+    {
+        "service": "youtube",
+        "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&t=20",
+        "valid": true
+    },
+    {
+        "service": "youtube",
+        "url": "https://youtu.be/dQw4w9WgXcQ?si=sample",
+        "valid": true
+    },
+    {
+        "service": "youtube",
+        "url": "https://m.youtube.com/watch?v=dQw4w9WgXcQ",
+        "valid": true
+    },
+    {
+        "service": "youtube",
+        "url": "https://www.youtube.com/shorts/dQw4w9WgXcQ",
+        "valid": true
+    },
+    {
+        "service": "youtube",
+        "url": "https://www.youtube.com/live/dQw4w9WgXcQ",
+        "valid": true
+    },
+    {
+        "service": "youtube",
+        "url": "HTTPS://WWW.YOUTUBE.COM:443/watch?v=dQw4w9WgXcQ",
+        "valid": true
+    },
+    {
+        "service": "youtubeMusic",
+        "url": "https://music.youtube.com/watch?v=dQw4w9WgXcQ&si=sample",
+        "valid": true
+    },
+    {
+        "service": "deezer",
+        "url": "https://www.deezer.com/fr/track/3135556?utm_source=share",
+        "valid": true
+    },
+    {
+        "service": "deezer",
+        "url": "https://deezer.com/track/3135556",
+        "valid": true
+    },
+    {
+        "service": "deezer",
+        "url": "https://deezer.page.link/abc123",
+        "valid": true
+    },
+    {
+        "service": "deezer",
+        "url": "https://link.deezer.com/s/abc123",
+        "valid": true
+    },
+    {
+        "service": "spotify",
+        "url": "https://open.spotify.com/track/4uLU6hMCjMI75M1A2tKUQC?si=sample",
+        "valid": true
+    },
+    {
+        "service": "spotify",
+        "url": "https://open.spotify.com/intl-fr/track/4uLU6hMCjMI75M1A2tKUQC",
+        "valid": true
+    },
+    {
+        "service": "spotify",
+        "url": "https://spotify.link/abc123",
+        "valid": true
+    },
+    {
+        "service": "youtube",
+        "url": "",
+        "valid": false
+    },
+    {
+        "service": "youtube",
+        "url": "javascript:alert(1)",
+        "valid": false
+    },
+    {
+        "service": "youtube",
+        "url": "http://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "valid": false
+    },
+    {
+        "service": "youtube",
+        "url": "https://youtube.com.evil.test/watch?v=dQw4w9WgXcQ",
+        "valid": false
+    },
+    {
+        "service": "youtube",
+        "url": "https://evil.test/?url=https://youtube.com/watch?v=dQw4w9WgXcQ",
+        "valid": false
+    },
+    {
+        "service": "youtube",
+        "url": "https://user@youtube.com/watch?v=dQw4w9WgXcQ",
+        "valid": false
+    },
+    {
+        "service": "youtube",
+        "url": "https://youtube.com:444/watch?v=dQw4w9WgXcQ",
+        "valid": false
+    },
+    {
+        "service": "youtube",
+        "url": "https://youtube.com/redirect?q=https://evil.test",
+        "valid": false
+    },
+    {
+        "service": "youtube",
+        "url": "https://youtube.com/watch?v=abc",
+        "valid": false
+    },
+    {
+        "service": "youtube",
+        "url": "https://youtube.com/watch?v=bad&v=dQw4w9WgXcQ",
+        "valid": false
+    },
+    {
+        "service": "youtube",
+        "url": "https://youtube.com/watch?v[]=dQw4w9WgXcQ",
+        "valid": false
+    },
+    {
+        "service": "youtube",
+        "url": "https://youtube.com/watch?v=dQw4w9WgXcQ\n",
+        "valid": false
+    },
+    {
+        "service": "youtube",
+        "url": "https://youtube.com\\@evil.test/watch?v=dQw4w9WgXcQ",
+        "valid": false
+    },
+    {
+        "service": "youtube",
+        "url": "https://%79outube.com/watch?v=dQw4w9WgXcQ",
+        "valid": false
+    },
+    {
+        "service": "youtubeMusic",
+        "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "valid": false
+    },
+    {
+        "service": "youtube",
+        "url": "https://music.youtube.com/watch?v=dQw4w9WgXcQ",
+        "valid": false
+    },
+    {
+        "service": "deezer",
+        "url": "https://www.deezer.com/track/abc",
+        "valid": false
+    },
+    {
+        "service": "deezer",
+        "url": "https://www.deezer.com/artist/123",
+        "valid": false
+    },
+    {
+        "service": "spotify",
+        "url": "https://open.spotify.com/track/bad",
+        "valid": false
+    },
+    {
+        "service": "spotify",
+        "url": "https://accounts.spotify.com/track/4uLU6hMCjMI75M1A2tKUQC",
+        "valid": false
+    },
+    {
+        "service": "spotify",
+        "url": "https://open.spotify.com/artist/4uLU6hMCjMI75M1A2tKUQC",
+        "valid": false
+    },
+    {
+        "service": "spotify",
+        "url": "https://open.spotify.com/track/4uLU6hMCjMI75M1A2tKUQC/evil",
+        "valid": false
+    }
+]

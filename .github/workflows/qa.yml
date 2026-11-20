@@ -1,0 +1,116 @@
+name: QA
+
+on:
+  push:
+    branches: [main]
+  # Toutes les bases de PR sont couvertes, y compris les PR empilées.
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: qa-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  qa:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    services:
+      mariadb:
+        image: mariadb:11.8
+        env:
+          MARIADB_ROOT_PASSWORD: ci-root
+          MARIADB_DATABASE: lyricflow_tests
+          MARIADB_USER: lyricflow
+          MARIADB_PASSWORD: ci-only
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="healthcheck.sh --connect --innodb_initialized"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+    # Configuration factice réservée au runner jetable, sans secret de production.
+    # Playwright remplace ces valeurs pour sa seule base browser-tests.sqlite.
+    env:
+      APP_ENV: testing
+      APP_KEY: base64:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+      DB_CONNECTION: sqlite
+      DB_DATABASE: ':memory:'
+      DB_URL: ''
+      CACHE_STORE: array
+      SESSION_DRIVER: array
+      MAIL_MAILER: array
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Préparer PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          coverage: none
+          extensions: mbstring, intl, pdo_sqlite, pdo_mysql, zip
+          tools: composer:v2
+      - name: Mettre les dépendances Composer en cache
+        uses: actions/cache@v6
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-8.4-composer-${{ hashFiles('composer.lock') }}
+          restore-keys: ${{ runner.os }}-php-8.4-composer-
+      - name: Installer les dépendances PHP
+        run: composer install --no-interaction --no-progress --prefer-dist
+      - name: Vérifier Composer
+        run: |
+          composer validate --strict
+          composer audit --locked
+      - name: Vérifier le style PHP
+        run: vendor/bin/pint --test
+      - name: Préparer Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Installer les dépendances frontend
+        run: npm ci --prefix frontend --no-audit --no-fund
+      - name: Vérifier le formatage frontend
+        run: npm run format:check --prefix frontend
+      - name: Tester la logique frontend
+        run: npm test --prefix frontend
+      - name: Compiler TypeScript et les ressources PWA
+        run: npm run build --prefix frontend
+      - name: Tester Laravel sur SQLite en mémoire
+        run: php artisan test
+      - name: Tester Laravel sur MariaDB
+        env:
+          DB_CONNECTION: mariadb
+          DB_HOST: 127.0.0.1
+          DB_PORT: '3306'
+          DB_DATABASE: lyricflow_tests
+          DB_USERNAME: lyricflow
+          DB_PASSWORD: ci-only
+        # RefreshDatabase applique les migrations dans le service dédié.
+        run: php artisan test
+      - name: Vérifier les scripts de déploiement
+        run: |
+          for script in deploy/backup.sh deploy/restore-check.sh deploy/entrypoint.sh; do
+            sh -n "$script"
+          done
+          sh tests/deployment_scripts_test.sh
+      - name: Installer Chromium pour Playwright
+        working-directory: frontend
+        run: npx playwright install --with-deps chromium
+      - name: Tester les parcours navigateur
+        run: npm run test:e2e --prefix frontend
+      - name: Conserver les traces des échecs navigateur
+        if: ${{ failure() && !cancelled() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: playwright-test-results
+          path: frontend/test-results/
+          if-no-files-found: ignore
+          retention-days: 7
