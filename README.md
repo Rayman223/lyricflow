@@ -1,10 +1,10 @@
 # LyricFlow
 
-LyricFlow est un prompteur musical pour téléphone, tablette et ordinateur. L’éditeur conserve les morceaux et les brouillons sur l’appareil. Le lecteur règle le défilement en temps musicaux ou en pixels par seconde et fonctionne hors ligne après le premier chargement de la PWA. Les comptes, la synchronisation privée et le catalogue communautaire sont facultatifs. L’interface et le guide utilisateur sont en anglais.
+LyricFlow is a music teleprompter for phones, tablets, and computers. The editor saves songs and drafts on your device. The prompter scrolls in time with the music or at a fixed speed in pixels per second. It works offline after the PWA first loads. Accounts, private sync, and the community catalog are optional. The interface and user guide are in English.
 
-## Démarrer en local
+## Run locally
 
-Installer PHP 8.4 ou plus récent avec les extensions demandées par Composer, Composer 2 et Node.js 22.12 ou plus récent. Le mode sans compte fonctionne sans base de données.
+Install PHP 8.4 or later with the extensions required by Composer, along with Composer 2 and Node.js 22.12 or later. Guest mode works without a database.
 
 ```bash
 composer install
@@ -15,11 +15,11 @@ npm run build --prefix frontend
 php artisan serve --host=127.0.0.1 --port=8000
 ```
 
-Ouvrir <http://localhost:8000> et suivre le [guide utilisateur](docs/USER_GUIDE.md). Le [format musical](docs/FORMAT_MUSICAL.md) décrit les réglages de tempo, les sections et les pauses. Le [guide d’auto-hébergement](docs/AUTO_HEBERGEMENT.md) couvre HTTPS, Docker et l’activation des comptes.
+Open <http://localhost:8000> and follow the [user guide](docs/USER_GUIDE.md). The [music notation guide (French)](docs/FORMAT_MUSICAL.md) covers tempo settings, sections, and pauses. The [self-hosting guide (French)](docs/AUTO_HEBERGEMENT.md) covers HTTPS, Docker, and enabling accounts.
 
-## Contribuer
+## Contributing
 
-Ouvrir une [issue](https://github.com/Rayman223/lyricflow/issues) pour signaler un problème reproductible ou discuter d’une évolution. Proposer les changements dans une PR et préciser les contrôles effectués. En soumettant une contribution, vous la proposez sous la licence du dépôt et confirmez avoir le droit de le faire. Indiquez l’origine et les conditions de toute ressource de tiers. Les textes de l’interface restent en anglais, et la documentation technique, les issues et les PR sont rédigées en français.
+Open an [issue](https://github.com/Rayman223/lyricflow/issues) to report a reproducible problem or discuss a proposed change. Submit changes in a pull request and describe the checks you ran. By submitting a contribution, you offer it under the repository license and confirm that you have the right to do so. Include the source and license terms of any third-party resources. Use English for interface text and French for technical documentation, issues, and pull requests.
 
 ```bash
 npm test --prefix frontend
@@ -30,8 +30,8 @@ npm run test:e2e --prefix frontend
 sh tests/deployment_scripts_test.sh
 ```
 
-Les contrôles Laravel requièrent PDO SQLite. Playwright utilise une base locale jetable `database/browser-tests.sqlite`. Signaler un problème de confidentialité ou de sécurité via [le canal de signalement privé](https://github.com/Rayman223/lyricflow/security/advisories/new).
+The Laravel tests require PDO SQLite. Playwright uses a disposable local database at `database/browser-tests.sqlite`. Report privacy or security issues through the [private reporting channel](https://github.com/Rayman223/lyricflow/security/advisories/new).
 
-## Licence
+## License
 
-LyricFlow est un logiciel **source-available**. La [licence](LICENSE) autorise notamment l’utilisation professionnelle, les modifications et la redistribution gratuite. La vente du logiciel, l’accès ou l’hébergement géré payants et l’intégration dans une offre commerciale exigent un accord écrit distinct. Les [notices des tiers](NOTICE.md) recensent les conditions applicables à leurs composants. Les paroles que vous saisissez ou publiez restent soumises à leurs propres droits.
+LyricFlow is **source-available** software. The [license](LICENSE) permits professional use, modification, and redistribution free of charge. Selling the software, charging for access or managed hosting, or including it in a commercial offering requires a separate written agreement. The [third-party notices](NOTICE.md) list the terms that apply to those components. Any lyrics you enter or publish remain subject to the rights that apply to them.

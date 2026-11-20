@@ -1,35 +1,35 @@
-# Licence LyricFlow 1.0
+# LyricFlow License 1.0
 
-© 2026 [Rayman223](https://github.com/Rayman223), titulaire des droits sur les éléments originaux de LyricFlow.
+© 2026 [Rayman223](https://github.com/Rayman223), rights holder for the original elements of LyricFlow.
 
-## 1. Périmètre
+## 1. Scope
 
-Le « Logiciel » désigne le code, la documentation et les ressources originales que leurs titulaires publient avec cette licence, y compris les paroles du morceau de démonstration, ainsi que les parties des versions modifiées qui dérivent de ces éléments. L’utilisation du nom et du logo de LyricFlow est régie par le §4. Les composants, ressources et extraits de tiers restent soumis aux conditions indiquées dans leurs propres notices. Chaque titulaire accorde les droits ci-dessous sur les éléments pour lesquels il est habilité à le faire.
+“Software” means the original code, documentation, and resources that their rights holders release under this License, including the lyrics of the demo song, as well as the portions of modified versions derived from those materials. Section 4 governs the use of the LyricFlow name and logo. Third-party components, resources, and excerpts remain subject to the terms stated in their own notices. Each rights holder grants the rights below for the materials that they are authorized to license.
 
-## 2. Droits accordés
+## 2. Rights granted
 
-Sous réserve des présentes conditions, vous bénéficiez d’une licence mondiale, gratuite, non exclusive et valable pendant la durée des droits applicables, pour utiliser, reproduire, étudier et modifier le Logiciel, distribuer gratuitement des copies originales ou modifiées et donner gratuitement accès à une instance hébergée.
+Subject to these terms, you receive a worldwide, non-exclusive license, free of charge and valid for the duration of the applicable rights, to use, reproduce, study, and modify the Software, distribute original or modified copies free of charge, and provide free access to a hosted instance.
 
-L’utilisation pour vos propres besoins est permise, y compris dans une activité professionnelle. Vous pouvez par exemple utiliser le Logiciel comme prompteur pendant une prestation rémunérée, acheter des ressources d’hébergement génériques pour le faire fonctionner vous-même ou payer un prestataire pour l’installer, le configurer ou vous former sur l’instance que vous exploitez. Un prestataire peut facturer ces services indépendants et l’assistance sur l’instance du client, sous réserve que son offre ne facture ni le Logiciel, ni un droit d’accès, ni l’exploitation d’une instance pour le compte du client.
+You may use the Software for your own purposes, including in a professional capacity. For example, you may use it as a teleprompter during a paid performance, purchase general-purpose hosting resources to run it yourself, or pay a service provider to install or configure it or train you on the instance you operate. A service provider may charge for those independent services and for support on the client’s instance, provided that the service provider does not charge for the Software, a right of access, or operating an instance on the client’s behalf.
 
-## 3. Exploitation soumise à autorisation
+## 3. Activities requiring authorization
 
-Un accord écrit distinct des titulaires concernés est requis pour vendre ou louer le Logiciel ou une version modifiée, l’inclure comme composant ou fonctionnalité d’une offre commerciale, exploiter un hébergement géré payant ou conditionner l’accès au Logiciel, à une instance ou à des fonctionnalités à un paiement ou à un autre avantage économique. Cette règle couvre notamment les abonnements, les frais obligatoires même limités aux coûts et la vente groupée avec un autre produit ou service. Une instance financée par la publicité ou la vente de données de ses utilisateurs requiert également cet accord.
+A separate written agreement from the relevant rights holders is required to sell or rent the Software or a modified version of it, include it as a component or feature of a commercial offering, provide paid managed hosting, or make access to the Software, an instance, or its features conditional on payment or another economic benefit. This rule includes subscriptions, mandatory fees even if limited to covering costs, and sales bundled with another product or service. An instance funded by advertising or by selling its users’ data also requires such an agreement.
 
-Un établissement peut utiliser le Logiciel pendant des cours payants. S’il le met à disposition des élèves, l’accès au Logiciel et à ses fonctionnalités doit rester gratuit et être possible sans payer ni s’inscrire à un cours payant.
+An educational institution may use the Software during paid classes. If it makes the Software available to students, access to the Software and its features must remain free and available without paying or enrolling in a paid class.
 
-Vous pouvez solliciter et recevoir des dons volontaires pour une instance ou une distribution gratuite. Un don peut donner lieu à un remerciement facultatif. Il ne peut conditionner l’accès, débloquer des fonctionnalités ni procurer un meilleur niveau de service.
+You may solicit and receive voluntary donations for an instance or distribution offered free of charge. A donation may be acknowledged on an optional basis. It must not be a condition for access, unlock features, or provide a higher level of service.
 
-## 4. Redistribution et identification
+## 4. Redistribution and identification
 
-Lorsque vous distribuez le Logiciel, y compris sous forme compilée ou dans une image conteneur, fournissez cette licence et conservez les mentions de droits d’auteur et les notices applicables. Les destinataires reçoivent les mêmes droits sur le Logiciel sous les mêmes conditions. Signalez de façon visible qu’une copie est modifiée lorsque vous la redistribuez. Sur une instance modifiée accessible à des tiers, indiquez aussi clairement que la version est modifiée.
+When you distribute the Software, including in compiled form or in a container image, include this License and retain the copyright statements and applicable notices. Recipients receive the same rights in the Software under the same terms. If you redistribute a modified copy, prominently indicate that it has been modified. If you make a modified instance available to third parties, clearly indicate that the version has been modified.
 
-La publication de vos modifications ou du code de votre instance reste facultative, sous réserve des obligations attachées aux composants de tiers que vous utilisez.
+Publishing your changes or the code of your instance is optional, subject to the obligations that apply to the third-party components you use.
 
-Le nom et le logo de LyricFlow peuvent figurer dans les copies distribuées avec leur attribution d’origine et dans les installations que vous exploitez pour vos propres besoins. Une instance exploitée pour des tiers adopte son propre nom et son propre logo. Elle peut citer LyricFlow pour indiquer l’origine du code, sans laisser croire à une affiliation ou à une approbation officielle. Les droits attachés aux signes distinctifs sont réservés pour les autres usages.
+The LyricFlow name and logo may appear in copies distributed with their original attribution and in installations you operate for your own purposes. An instance operated for third parties must use its own name and logo. It may refer to LyricFlow to identify the source of the code without implying official affiliation or endorsement. Rights in the distinctive marks are reserved for all other uses.
 
-## 5. Fin des droits et responsabilité
+## 5. Termination and liability
 
-En cas de violation, les droits accordés par cette licence prennent fin pour la personne qui a commis la violation. Cette fin des droits n’affecte pas les destinataires qui respectent la licence. Les autorisations écrites distinctes restent régies par leurs propres conditions.
+If a person violates this License, the rights granted by this License terminate for that person. This termination does not affect recipients who comply with the License. Separate written authorizations remain subject to their own terms.
 
-Dans les limites permises par la loi applicable, le Logiciel est fourni en l’état, sans garantie, et ses titulaires déclinent toute responsabilité pour les dommages résultant de son utilisation ou de l’impossibilité de l’utiliser. Les droits et recours impératifs prévus par la loi applicable demeurent applicables.
+To the extent permitted by applicable law, the Software is provided as is, without warranty, and its rights holders disclaim liability for damages resulting from its use or inability to use it. Mandatory rights and remedies under applicable law remain in effect.
